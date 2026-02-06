@@ -96,7 +96,7 @@ def register():
     if len(password) < 4:
         return jsonify({"error": "Password must be at least 4 characters"}), 400
 
-    # 🔐 HASH PASSWORD
+    #  HASH PASSWORD
     hashed_password = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
 
     conn = get_connection()
@@ -143,7 +143,7 @@ def login():
     if isinstance(stored_hash, str):
         stored_hash = stored_hash.encode()
 
-    # ✅ Correct bcrypt check
+    #  Correct bcrypt check
     if not bcrypt.checkpw(password.encode(), stored_hash):
         return jsonify({"error": "Incorrect password"}), 401
 
