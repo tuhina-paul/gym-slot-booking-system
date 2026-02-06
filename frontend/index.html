@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gym Booking | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadDashboard()">
+
+    <div class="sidebar">
+        <h2>GYM-FUSION</h2>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slots.html">View Slots</a></li>
+            <li><a href="my-bookings.html">My Bookings</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Welcome to your Gym Dashboard</h1>
+        <div class="card-row">
+            <div class="card">
+                <h3>Total Slots</h3>
+                <h1 id="totalSlots">0</h1>
+            </div>
+            <div class="card">
+                <h3>My Bookings</h3>
+                <h1 id="myBookingsCount">0</h1>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Slot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="navbar"></div>
+
+<script>
+if (!localStorage.getItem("token")) {
+    window.location.href = "login.html";
+}
+fetch("navbar.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("navbar").innerHTML = data);
+</script>
+
+<div class="container">
+    <h2>Book Slot</h2>
+
+    <input type="number" id="slot_id" placeholder="Enter Slot ID">
+    <button onclick="bookSlot()">Book</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+async function bookSlot() {
+    let slot_id = document.getElementById("slot_id").value;
+    let token = localStorage.getItem("token");
+
+    let res = await fetch("http://127.0.0.1:5000/book-slot", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": token
+        },
+        body: JSON.stringify({slot_id})
+    });
+
+    let data = await res.json();
+
+    document.getElementById("result").innerHTML =
+        `<span style="color:${data.error ? 'red' : 'green'}">
+            ${data.message || data.error}
+         </span>`;
+}
+</script>
+
+</body>
+</html>
