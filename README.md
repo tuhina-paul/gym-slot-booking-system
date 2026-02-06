@@ -20,7 +20,7 @@ A full-stack Gym Slot Booking web application built using **Flask, SQLite, and J
 - Security: bcrypt
 
 #  Project Structure
-
+```
 GymSlot/
 ├── backend/
 │   ├── __pycache__/
@@ -46,4 +46,4 @@ GymSlot/
 ├── requirements.txt
 ├── README.md
 └── .gitignore
-
+```
